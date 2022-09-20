@@ -1,0 +1,10 @@
+C:\Users\mrtuo\Source\Repos\AXE\source\GetFeedBack\GetFeedBack.Logic\bin\Debug\netcoreapp3.1\GetFeedBack.Logic.deps.json
+C:\Users\mrtuo\Source\Repos\AXE\source\GetFeedBack\GetFeedBack.Logic\bin\Debug\netcoreapp3.1\GetFeedBack.Logic.dll
+C:\Users\mrtuo\Source\Repos\AXE\source\GetFeedBack\GetFeedBack.Logic\bin\Debug\netcoreapp3.1\GetFeedBack.Logic.pdb
+C:\Users\mrtuo\Source\Repos\AXE\source\GetFeedBack\GetFeedBack.Logic\obj\Debug\netcoreapp3.1\GetFeedBack.Logic.csproj.AssemblyReference.cache
+C:\Users\mrtuo\Source\Repos\AXE\source\GetFeedBack\GetFeedBack.Logic\obj\Debug\netcoreapp3.1\GetFeedBack.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mrtuo\Source\Repos\AXE\source\GetFeedBack\GetFeedBack.Logic\obj\Debug\netcoreapp3.1\GetFeedBack.Logic.AssemblyInfoInputs.cache
+C:\Users\mrtuo\Source\Repos\AXE\source\GetFeedBack\GetFeedBack.Logic\obj\Debug\netcoreapp3.1\GetFeedBack.Logic.AssemblyInfo.cs
+C:\Users\mrtuo\Source\Repos\AXE\source\GetFeedBack\GetFeedBack.Logic\obj\Debug\netcoreapp3.1\GetFeedBack.Logic.csproj.CoreCompileInputs.cache
+C:\Users\mrtuo\Source\Repos\AXE\source\GetFeedBack\GetFeedBack.Logic\obj\Debug\netcoreapp3.1\GetFeedBack.Logic.dll
+C:\Users\mrtuo\Source\Repos\AXE\source\GetFeedBack\GetFeedBack.Logic\obj\Debug\netcoreapp3.1\GetFeedBack.Logic.pdb
