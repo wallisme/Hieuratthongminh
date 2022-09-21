@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mrtuo\\source\\repos\\Axe\\source\\GetFeedBack\\GetFeedBack.Logic\\GetFeedBack.Logic.csproj": {}
+    "C:\\Users\\mrtuo\\Source\\Repos\\AXE\\source\\GetFeedBack\\GetFeedBack.Logic\\GetFeedBack.Logic.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mrtuo\\source\\repos\\Axe\\source\\GetFeedBack\\GetFeedBack.Logic\\GetFeedBack.Logic.csproj": {
+    "C:\\Users\\mrtuo\\Source\\Repos\\AXE\\source\\GetFeedBack\\GetFeedBack.Logic\\GetFeedBack.Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrtuo\\source\\repos\\Axe\\source\\GetFeedBack\\GetFeedBack.Logic\\GetFeedBack.Logic.csproj",
+        "projectUniqueName": "C:\\Users\\mrtuo\\Source\\Repos\\AXE\\source\\GetFeedBack\\GetFeedBack.Logic\\GetFeedBack.Logic.csproj",
         "projectName": "GetFeedBack.Logic",
-        "projectPath": "C:\\Users\\mrtuo\\source\\repos\\Axe\\source\\GetFeedBack\\GetFeedBack.Logic\\GetFeedBack.Logic.csproj",
+        "projectPath": "C:\\Users\\mrtuo\\Source\\Repos\\AXE\\source\\GetFeedBack\\GetFeedBack.Logic\\GetFeedBack.Logic.csproj",
         "packagesPath": "C:\\Users\\mrtuo\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\mrtuo\\Source\\Repos\\AXE\\source\\GetFeedBack\\GetFeedBack.Logic\\obj\\",
         "projectStyle": "PackageReference",

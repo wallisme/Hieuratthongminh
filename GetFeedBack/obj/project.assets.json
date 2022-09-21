@@ -9076,9 +9076,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mrtuo\\source\\repos\\Axe\\source\\GetFeedBack\\GetFeedBack\\GetFeedBack.csproj",
+      "projectUniqueName": "C:\\Users\\mrtuo\\Source\\Repos\\AXE\\source\\GetFeedBack\\GetFeedBack\\GetFeedBack.csproj",
       "projectName": "GetFeedBack",
-      "projectPath": "C:\\Users\\mrtuo\\source\\repos\\Axe\\source\\GetFeedBack\\GetFeedBack\\GetFeedBack.csproj",
+      "projectPath": "C:\\Users\\mrtuo\\Source\\Repos\\AXE\\source\\GetFeedBack\\GetFeedBack\\GetFeedBack.csproj",
       "packagesPath": "C:\\Users\\mrtuo\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\mrtuo\\source\\repos\\Axe\\source\\GetFeedBack\\GetFeedBack\\obj\\",
       "projectStyle": "PackageReference",
@@ -9100,8 +9100,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\mrtuo\\source\\repos\\Axe\\source\\GetFeedBack\\GetFeedBack.Logic\\GetFeedBack.Logic.csproj": {
-              "projectPath": "C:\\Users\\mrtuo\\source\\repos\\Axe\\source\\GetFeedBack\\GetFeedBack.Logic\\GetFeedBack.Logic.csproj"
+            "C:\\Users\\mrtuo\\Source\\Repos\\AXE\\source\\GetFeedBack\\GetFeedBack.Logic\\GetFeedBack.Logic.csproj": {
+              "projectPath": "C:\\Users\\mrtuo\\Source\\Repos\\AXE\\source\\GetFeedBack\\GetFeedBack.Logic\\GetFeedBack.Logic.csproj"
             }
           }
         }

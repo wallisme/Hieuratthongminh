@@ -55,8 +55,8 @@ namespace GetFeedBack.Controllers
             var fbs = _db.FeedBacks.Count();
 
 
-            ViewBag.userCount = userCount.ToArray();
-            ViewBag.fbCount = fbCount.ToArray();
+            ViewBag.userCount = JsonConvert.SerializeObject(userCount);
+            ViewBag.fbCount = JsonConvert.SerializeObject(fbCount);
             ViewBag.users = users;
             ViewBag.fbs = fbs;
             return View();
