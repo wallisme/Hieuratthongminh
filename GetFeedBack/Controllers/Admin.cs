@@ -1,12 +1,14 @@
 ﻿using GetFeedBack.Models;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace GetFeedBack.Controllers
 {
@@ -38,36 +40,25 @@ namespace GetFeedBack.Controllers
 
         public IActionResult DashboardStatistics()
         {
-            List<DataPoint> dataPoints1 = new List<DataPoint>();
-            List<DataPoint> dataPoints2 = new List<DataPoint>();
             List<int> userCount = new List<int>();
             List<int> fbCount = new List<int>();
-            for (int i = 1; i <= 6; ++i)
+            for (int i = 0; i < 12; ++i)
             {
-                var temp = _db.Users.Count(p => p.CreateDate.Month == i);
-                var temp2 = _db.FeedBacks.Count(p => p.CreateDate.Month == i);
+                var temp = _db.Users.Count(p => p.CreateDate.Month == (i+1));
+                var temp2 = _db.FeedBacks.Count(p => p.CreateDate.Month == (i+1));
                 userCount.Add(temp);
-                fbCount.Add(temp2);
+                fbCount.Add(temp2); 
             }
 
 
-            dataPoints1.Add(new DataPoint("Jan", userCount[0]));
-            dataPoints1.Add(new DataPoint("Feb", userCount[1]));
-            dataPoints1.Add(new DataPoint("Mar", userCount[2]));
-            dataPoints1.Add(new DataPoint("Apr", userCount[3]));
-            dataPoints1.Add(new DataPoint("May", userCount[4]));
-            dataPoints1.Add(new DataPoint("Jun", userCount[5]));
+            var users = _db.Users.Count();
+            var fbs = _db.FeedBacks.Count();
 
-            dataPoints2.Add(new DataPoint("Jan", fbCount[0]));
-            dataPoints2.Add(new DataPoint("Feb", fbCount[1]));
-            dataPoints2.Add(new DataPoint("Mar", fbCount[2]));
-            dataPoints2.Add(new DataPoint("Apr", fbCount[3]));
-            dataPoints2.Add(new DataPoint("May", fbCount[4]));
-            dataPoints2.Add(new DataPoint("Jun", fbCount[5]));
 
-            ViewBag.DataPoints1 = JsonConvert.SerializeObject(dataPoints1);
-            ViewBag.DataPoints2 = JsonConvert.SerializeObject(dataPoints2);
-
+            ViewBag.userCount = userCount.ToArray();
+            ViewBag.fbCount = fbCount.ToArray();
+            ViewBag.users = users;
+            ViewBag.fbs = fbs;
             return View();
         }
         
@@ -110,21 +101,26 @@ namespace GetFeedBack.Controllers
 
         public IActionResult Edit (Users user)
         {
-            var update = (from v in _db.Users where v.Id == user.Id select v).FirstOrDefault();
-            update.Equals(user);
+            var us = _db.Users.FirstOrDefault(x => x.Id == user.Id);
+            us.Username = user.Username;
+            us.Password = user.Password;
+            us.Email = user.Email;
+            _db.SaveChanges();
             return RedirectToAction("UserManagement");
         }
 
         public IActionResult Delete (int? id)
         {
-            Users user = _db.Users.Find(id);
-
-            var listItem = _db.FeedBacks.First(x => x.UserId == id);
-            if (listItem != null)
+            do
             {
-                _db.FeedBacks.Remove(listItem);
+                if (_db.FeedBacks.Count(p => p.UserId == id) == 0) break;
+                FeedBacks fb = _db.FeedBacks.Where(p => p.UserId == id).FirstOrDefault();
+                _db.Entry(fb).State = EntityState.Deleted;
+                _db.SaveChanges();
             }
-            _db.Users.Remove(user);
+            while (true);
+            Users user = _db.Users.FirstOrDefault(p => p.Id == id);
+            _db.Entry(user).State = EntityState.Deleted;
             _db.SaveChanges();
             return RedirectToAction("UserManagement");
         }

@@ -6,37 +6,120 @@
 <!DOCTYPE HTML>
 <html>
 <meta charset="UTF-8">
-<head>
-<script>
-window.onload = function () {
- 
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	title: {
-		text: "Thống kê trong năm"
-	},
-	toolTip: {
-		shared: true
-	},
-	data: [{
-		type: "spline",
-		name: "Người dùng",
-		showInLegend: true,
-		dataPoints: @Html.Raw(ViewBag.DataPoints1)
-	}, {
-		type: "spline",
-		name: "Feedbacks",
-		showInLegend: true,
-		dataPoints: @Html.Raw(ViewBag.DataPoints2)
-	}]
-});
-chart.render();
- 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="~/css/adminlte.min.css">
+
+
+
+<H1 style="text-align:center;">Thống kê năm @DateTime.Now.Year</H1>
+
+<h5 class="mb-2">Chi tiết</h5>
+<div class="row">
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Số lượng người dùng</span>
+                <span class="info-box-number">@Html.Raw(ViewBag.users)</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Feedbacks</span>
+                <span class="info-box-number">@Html.Raw(ViewBag.fbs)</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    
+    </div>
+
+
+
+    <div class="card card-success">
+        <div class="card-body">
+            <div class="chart">
+                <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+@section scripts{
+    <script>
+        $(function () {
+
+            var areaChartData = {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                datasets: [
+                    {
+                        label: 'Người dùng',
+                        backgroundColor: 'rgba(60,141,188,0.9)',
+                        borderColor: 'rgba(60,141,188,0.8)',
+                        pointRadius: false,
+                        pointColor: '#3b8bba',
+                        pointStrokeColor: 'rgba(60,141,188,1)',
+                        pointHighlightFill: '#fff',
+                        pointHighlightStroke: 'rgba(60,141,188,1)',
+                        data: @Html.Raw(ViewBag.userCount)
+                    },
+                    {
+                        label: 'Feedbacks',
+                        backgroundColor: 'rgba(210, 214, 222, 1)',
+                        borderColor: 'rgba(210, 214, 222, 1)',
+                        pointRadius: false,
+                        pointColor: 'rgba(210, 214, 222, 1)',
+                        pointStrokeColor: '#c1c7d1',
+                        pointHighlightFill: '#fff',
+                        pointHighlightStroke: 'rgba(220,220,220,1)',
+                        data: @Html.Raw(ViewBag.fbCount)
+                    },
+                ]
+            }
+
+
+            //- BAR CHART -
+
+            var barChartCanvas = $('#barChart').get(0).getContext('2d')
+            var barChartData = $.extend(true, {}, areaChartData)
+            var temp0 = areaChartData.datasets[0]
+            var temp1 = areaChartData.datasets[1]
+            barChartData.datasets[0] = temp1
+            barChartData.datasets[1] = temp0
+
+            var barChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                datasetFill: false
+            }
+
+            new Chart(barChartCanvas, {
+                type: 'bar',
+                data: barChartData,
+                options: barChartOptions
+            })
+
+
+        })
+    </script>
+       <script src="~/js/jquery.min.js"></script>
+       <script src="~/js/bootstrap.bundle.min.js"></script>
+       <script src="~/js/Chart.min.js"></script>
+
 }
-</script>
-</head>
-<body>
-<div id="chartContainer" style="height: 370px; width: 90%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>	
-</body>
 </html>

@@ -4,13 +4,18 @@
     ViewData["Title"] = "UserManagement";
     Layout = "~/Views/Admin/_Layout.cshtml";
 }
-
+<style>
+    *{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 17px;
+    }
+</style>
 <h1 style="text-align:center">Quản lý người dùng</h1>
 
 <p>
     <a asp-action="CreateUser" class="btn btn-danger">Tạo mới User</a>
 </p>
-<table class="table table-hover">
+<table class="table table-hover" id="datatable">
     <thead>
         <tr>
             <th>
@@ -53,4 +58,15 @@
     </tbody>
 </table>
 
-<script src="https://kit.fontawesome.com/20dc22ebe0.js" crossorigin="anonymous"></script>
+
+@section scripts{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+    <script src="https://kit.fontawesome.com/20dc22ebe0.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            debugger;
+            $('#datatable').DataTable();
+        })
+    </script>
+}
